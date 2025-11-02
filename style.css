@@ -1,0 +1,179 @@
+ html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+/* Nav link style */
+  .nav-link {
+    position: relative;
+     padding: 8px 16px;        
+    margin: 0 6px;  
+    transition: color 0.3s ease;
+  }
+
+  /* Line above the active link */
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0; /* Line will be on top */
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: rgb(102, 153, 153); 
+    transition: width 0.3s ease
+  }
+
+  .nav-link.active::before {
+    width: 100%;
+  }
+.navbar {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  /* nav links end */
+
+
+main{
+    background-color:rgb(102, 153, 153);
+}
+
+  
+  /*fixed-section*/
+.fixed-section {
+  position: sticky;
+  top: 0;   /* navbar ke neeche chipka rahega */
+  height:100vh; /* full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  background: rgb(102, 153, 153); /* background set karo taki content overlap na ho */
+}
+
+
+#typing {
+  font-size: 22px;
+  font-weight: bold;
+
+  text-align: center;
+  margin-top: 5px;
+  line-height: 1;
+}
+
+
+.typed-cursor {
+  font-size: 22px;
+  animation: blink 0.7s infinite;
+  color: black;
+  line-height: 1;        /* cursor ki bhi height fix */
+}
+
+   /*fixed-section-end*/   
+
+
+  .section-title {
+  display: flex;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+.section-title::after {
+  content: "";
+  flex: 0 0 auto;     /* ab fixed width lega */
+  width: 50px;        /* ab choti line */
+  height: 3px;
+  background: #000;
+  margin-left: 10px;
+}
+
+
+.trans-box{
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+/* General */
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill-title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Different skill colors + width */
+.skill-fill.html {
+  width: 95%;
+  background: #4caf50; /* green */
+}
+
+.skill-fill.css {
+  width: 85%;
+  background: #ff9800; /* orange */
+}
+
+.skill-fill.php {
+  width: 90%;
+  background: #f44336; /* red */
+}
+
+.skill-fill.js {
+  width: 90%;
+  background: #e91e63; /* pink/red */
+}
+
+.skill-fill.angular {
+  width: 95%;
+  background: #009688; /* teal */
+}
+
+.skill-fill.wordpress {
+  width: 85%;
+  background: #2196f3; /* blue */
+}
+
+
+/* Contact Form */
+.contact-form .form-control {
+background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(102, 153, 153,0.5);
+  color: #fff;
+  padding: 12px;
+}
+
+.contact-form .form-control:focus {
+  border-color:  rgba(102, 153, 153,0.5);
+  box-shadow: none;
+background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(34, 71, 71, 0.9);
+  color: #fff;
+}
+
+.btn-send {
+  background:rgb(27, 25, 25);
+  color: #fff;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+ }
+.btn-send:hover{
+  background-color: #000000;
+}

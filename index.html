@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .nav-link {
+      position: relative;
+      padding: 8px 16px;
+      margin: 0 6px;
+      transition: color 0.3s ease;
+    }
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: rgb(102, 153, 153);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 100%;
+    }
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      background-color: rgb(102, 153, 153);
+    }
+
+    /* Sidebar */
+    
+    .fixed-section {
+      position: sticky;
+      top: 80px; /* Navbar ke neeche */
+      height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      background: rgb(102, 153, 153);
+      border-right: 2px solid rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 767px) {
+  .fixed-section {
+    position: static;   /* Sticky hata do */
+    height: auto;       /* Normal flow */
+    border-right: none; /* Border bhi hata do mobile ke liye */
+    padding: 20px 0;
+  }
+}
+
+    .fixed-section img {
+      max-width: 200px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    }
+
+    #typing {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 5px;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    /* Section Title */
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+    .section-title::after {
+      content: "";
+      flex: 0 0 auto;
+      width: 50px;
+      height: 3px;
+      background: #000;
+      margin-left: 10px;
+    }
+
+    .trans-box {
+      background-color: rgba(0,0,0,0.1);
+      border-radius: 8px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Skills */
+    .skill {
+      margin-bottom: 20px;
+    }
+    .skill-title {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    .skill-bar {
+      height: 8px;
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      border-radius: 5px;
+    }
+    .skill-fill.html {width: 95%; background: #4caf50;}
+    .skill-fill.css {width: 85%; background: #ff9800;}
+    .skill-fill.php {width: 50%; background: #f44336;}
+    .skill-fill.js {width: 50%; background: #e91e63;}
+    .skill-fill.angular {width: 95%; background: #009688;}
+    .skill-fill.wordpress {width: 97%; background: #2196f3;}
+
+    /* Services */
+    .service-box {
+      background: rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      transition: transform 0.3s;
+    }
+    .service-box:hover {
+      transform: translateY(-5px);
+    }
+    .service-box i {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    /* Contact Form */
+    .contact-form .form-control {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid  rgba(52, 78, 78, 0.1);
+      color: #000;
+      padding: 12px;
+    }
+    .contact-form .form-control:focus {
+      border-color: rgba(52, 78, 78, 0.9);
+      box-shadow: none;
+    }
+    .btn-send {
+      background: #070606;
+      color: #fff;
+      font-weight: 500;
+      padding: 12px;
+      border-radius: 4px;
+      border: none;
+    }
+    .btn-send:hover {
+      background-color: #202020;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto pe-4 fw-bold">
+          <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        
+        <!-- Sidebar -->
+        <div class="col-12 col-md-3 fixed-section">
+          <div class="top-content text-center">
+            <img src="img2.jpg" alt="Profile">
+            <h3 class="mt-2 fw-bold text-white">Preeti Saini</h3>
+            <span id="typing"></span>
+          </div>
+          <div class="bottom-content text-center mt-3">
+          <a href="My Resume (4).pdf" download class="btn btn-light mb-1 text-decoration-none">Download CV</a>
+
+           <a href="tel:+919528887154" class="btn btn-dark text-decoration-none">Contact Me</a>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-12 col-md-9 p-4">
+
+          <!-- About -->
+          <section id="about">
+            <h2 class="fw-bold section-title">About Me</h2>
+            <p class="pt-3 text-white">Passionate Frontend Developer with experience in HTML, CSS, JavaScript and Bootstrap.
+               Currently pursuing Diploma in Computer Science and working as a Web Development Intern. I enjoy building responsive, clean and user-friendly websites and always look forward to learning new technologies and improving my skills through real-world projects.</p>
+            <div class="row text-white">
+              <div class="col-md-6"><h6><b>Name:</b>Preeti Saini</h6></div>
+              <div class="col-md-6"><h6><b>Birthday:</b> 17 April 2003</h6></div>
+              <div class="col-md-6"><h6><b>Email:</b>preetisaini.tech@gmail.com</h6></div>
+              <div class="col-md-6"><h6><b>Phone:</b> +91 9528887154</h6></div>
+            </div>
+          </section>
+
+          <hr class="border-dark my-4">
+
+          <!-- Skills -->
+          <section id="skills">
+            <h2 class="fw-bold section-title">Skills</h2>
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <div class="skill"><div class="skill-title"><span>HTML</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill html"></div></div></div>
+                <div class="skill"><div class="skill-title"><span>CSS</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill css"></div></div></div>
+                <div class="skill"><div class="skill-title"><span>Figma</span><span>50%</span></div><div class="skill-bar"><div class="skill-fill php"></div></div></div>
+              </div>
+              <div class="col-md-6">
+                <div class="skill"><div class="skill-title"><span>Javascript</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill js"></div></div></div>
+                <div class="skill"><div class="skill-title"><span>Bootstrap</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill angular"></div></div></div>
+                <div class="skill"><div class="skill-title"><span>Responsive Design</span><span>97%</span></div><div class="skill-bar"><div class="skill-fill wordpress"></div></div></div>
+              </div>
+            </div>
+          </section>
+       <!--skills-end-->
+
+<hr class="border-dark my-4">
+
+<!-- Projects -->
+<section id="projects">
+  <h2 class="fw-bold section-title">My Projects</h2>
+  <div class="row mt-3">
+    
+   <!-- Project 1 -->
+<div class="col-md-4 mb-3">
+  <div class="service-box">
+    <img src="image 1.png" class="img-fluid rounded mb-2" alt="Project 1">
+    <h5>Recipe Website</h5>
+    <p>A clean and responsive design created using HTML, CSS, and Media Queries.</p>
+    <a href="https://coder-preet.github.io/my-first-website/" target="_blank" class="btn btn-light btn-sm">Live View</a>
+  </div>
+</div>
+
+<!-- Project 2 -->
+<div class="col-md-4 mb-3">
+  <div class="service-box">
+    <img src="image 2.png" class="img-fluid rounded mb-2" alt="Project 2">
+    <h5>Landing Page Design</h5>
+    <p>A modern and visually appealing landing page built with responsive layout and animations.</p>
+    <a href="https://coder-preet.github.io/travel/" target="_blank" class="btn btn-light btn-sm">Live View</a>
+  </div>
+</div>
+
+<!-- Project 3 -->
+<div class="col-md-4 mb-3">
+  <div class="service-box">
+    <img src="image 3.png" class="img-fluid rounded mb-2" alt="Project 3">
+    <h5>Plants E-commerce Website</h5>
+    <p>Fully responsive plant shop with modern UI.</p>
+    <a href="https://coder-preet.github.io/plants-website/" target="_blank" class="btn btn-light btn-sm">Live View</a>
+  </div>
+</div>
+  </div>
+</section>
+
+
+          <hr class="border-dark my-4">
+
+         <!-- Services -->
+<section id="services">
+  <h2 class="fw-bold section-title">My Services</h2>
+  <div class="row mt-3">
+    
+   
+
+    <div class="col-md-4 mb-3">
+      <div class="service-box">
+        <i class="fas fa-paint-brush"></i>
+        <h5>UI/UX Design</h5>
+        <p>Designing clean and user-friendly interfaces with great user experience.</p>
+      </div>
+    </div>
+
+     <div class="col-md-4 mb-3">
+      <div class="service-box">
+        <i class="fas fa-code"></i>
+        <h5>Web Development</h5>
+        <p>Building fast, responsive, and modern websites using the latest web technologies for a smooth user experience</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="service-box">
+        <i class="fas fa-laptop"></i>  <!-- icon change -->
+        <h5>Web Designing</h5>
+        <p>Creating attractive and professional website designs with proper layout and color scheme.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+          <hr class="border-dark my-4">
+
+          <!-- Contact -->
+          <section id="contact">
+            <h2 class="fw-bold section-title">Contact Me</h2>
+         <form action="https://script.google.com/macros/s/AKfycbwHdBG4MfHsgWFwv9r5E6p9oq6nSSUZZS6meqkMjO5XTOVEa5Hol8W_G7YJAwJ__kWmTQ/exec" 
+      method="POST">
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
+      <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+    </div>
+  </div>
+  <div class="mb-4">
+    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+  </div>
+  <div class="mb-3">
+    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+  </div>
+  <div>
+    <button type="submit" class="btn-send w-100">Send Message</button>
+  </div>
+</form>
+
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-3 bg-light text-dark">
+  <div>
+    <!-- <a href="#" class="text-dark me-3"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a> -->
+    <a href="https://www.linkedin.com/in/preeti-saini-b58006324" class="text-dark me-3"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/its_preetsainy" class=" text-dark"><i class="fab fa-instagram"></i></a>
+  </div>
+  <p class="mt-2 mb-0">© 2025 Preeti Saini | All Rights Reserved</p>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed("#typing", {
+      strings: ["Frontend Developer", "Web Developer"],
+      typeSpeed: 100,
+      backSpeed: 50,
+      loop: true,
+      showCursor: true
+    });
+  </script>
+</body>
+</html>
